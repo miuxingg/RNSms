@@ -1,0 +1,167 @@
+{
+  "project_info": {
+    "project_number": "660743887071",
+    "project_id": "nailshop-f96bc",
+    "storage_bucket": "nailshop-f96bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660743887071:android:66e5597d176a06be6df16a",
+        "android_client_info": {
+          "package_name": "com.mttjsc.nailshop.app.customer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660743887071-aecr6ql8n398o9s9p2hp9l3u4ddhs46j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mttjsc.nailshop.app.customer",
+            "certificate_hash": "1838e9466135642fa7528f127b98d4bbb6b6af6e"
+          }
+        },
+        {
+          "client_id": "660743887071-pa80rl6ttlr1nvvcn1i8qsluj62ppe0t.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mttjsc.nailshop.app.customer",
+            "certificate_hash": "cf46e72df672545d96b3552ba752032452bd2ff7"
+          }
+        },
+        {
+          "client_id": "660743887071-74iniv9rjhvm1gctlpi5hangdv3b1th4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgbclJgqu2SOlETR-QLXuXJMNZBqixdGc"
+        },
+        {
+          "current_key": "AIzaSyDJu_7zWtcyBg4k63J6L9k6armHfAeIfUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660743887071-74iniv9rjhvm1gctlpi5hangdv3b1th4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "660743887071-a9kf30ramkmnvh7i8a7lkp1r5qi27n4l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mttjsc.nailshop.app.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660743887071:android:3d95c42e3247a6cf6df16a",
+        "android_client_info": {
+          "package_name": "com.mttjsc.nailsshop.staff"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660743887071-tpk3q9dp8m1gbpg5ua78e9blhicaseud.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mttjsc.nailsshop.staff",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "660743887071-v88ppjro15e74slhknlqklfjdgp0hh36.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mttjsc.nailsshop.staff",
+            "certificate_hash": "2640c2d5091c4bff5a29bba08880490a70b0442c"
+          }
+        },
+        {
+          "client_id": "660743887071-74iniv9rjhvm1gctlpi5hangdv3b1th4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgbclJgqu2SOlETR-QLXuXJMNZBqixdGc"
+        },
+        {
+          "current_key": "AIzaSyDJu_7zWtcyBg4k63J6L9k6armHfAeIfUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660743887071-74iniv9rjhvm1gctlpi5hangdv3b1th4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "660743887071-a9kf30ramkmnvh7i8a7lkp1r5qi27n4l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mttjsc.nailshop.app.customer"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:660743887071:android:8184dac5fa9e406d6df16a",
+        "android_client_info": {
+          "package_name": "com.smscall072"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "660743887071-arke8j8dmrd4vj4c39vmkqfedpj403lq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smscall072",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "660743887071-74iniv9rjhvm1gctlpi5hangdv3b1th4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgbclJgqu2SOlETR-QLXuXJMNZBqixdGc"
+        },
+        {
+          "current_key": "AIzaSyDJu_7zWtcyBg4k63J6L9k6armHfAeIfUg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "660743887071-74iniv9rjhvm1gctlpi5hangdv3b1th4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "660743887071-a9kf30ramkmnvh7i8a7lkp1r5qi27n4l.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mttjsc.nailshop.app.customer"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
