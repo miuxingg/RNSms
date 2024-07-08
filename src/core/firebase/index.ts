@@ -30,9 +30,9 @@ export class FirebaseService {
       }
     } catch (error) {}
   }
-  async geToken() {
+  async getToken() {
     const token = await messaging().getToken();
-    console.log({token});
+    return token;
   }
 
   onMessage(

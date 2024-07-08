@@ -1,5 +1,5 @@
-import React, {useCallback, useEffect, useState} from 'react';
-import {AppState, NativeModules, Platform} from 'react-native';
+import React, {useCallback, useEffect} from 'react';
+import {Platform} from 'react-native';
 import {
   check,
   PERMISSIONS,
@@ -9,11 +9,11 @@ import {
 import {FirebaseService} from './core/firebase';
 
 import PushNotification from 'react-native-push-notification';
-import {MessageTitle} from '@mtt-nails/consts';
 import {MobxStoreProvider} from './stores/providers';
-import LoginScreen from './screens/login';
 import {NativeBaseProvider} from 'native-base';
 import {theme} from './libs/theme';
+import {NavigationContainer} from '@react-navigation/native';
+import {AppNavigator} from './navigator';
 
 PushNotification.createChannel(
   {
@@ -29,25 +29,20 @@ PushNotification.createChannel(
   },
 );
 
-const {SmsModule, PhoneCallModule} = NativeModules;
-
-const firebaseService = new FirebaseService();
+export const firebaseService = new FirebaseService();
 
 function App(): JSX.Element {
-  const [appState, setAppState] = useState(AppState.currentState);
   const checkPermistion = useCallback(async () => {
     const requestPermissionList: Permission[] = [];
     try {
       if (Platform.OS === 'android') {
         const sendSmsPermission = await check(PERMISSIONS.ANDROID.SEND_SMS);
         if (!sendSmsPermission || sendSmsPermission === 'denied') {
-          // request(PERMISSIONS.ANDROID.SEND_SMS);
           requestPermissionList.push(PERMISSIONS.ANDROID.SEND_SMS);
         }
 
         const callPermission = await check(PERMISSIONS.ANDROID.CALL_PHONE);
         if (!callPermission || callPermission === 'denied') {
-          // request(PERMISSIONS.ANDROID.CALL_PHONE);
           requestPermissionList.push(PERMISSIONS.ANDROID.CALL_PHONE);
         }
 
@@ -55,7 +50,6 @@ function App(): JSX.Element {
           PERMISSIONS.ANDROID.POST_NOTIFICATIONS,
         );
         if (!pushNotifyPermission || pushNotifyPermission === 'denied') {
-          // request(PERMISSIONS.ANDROID.POST_NOTIFICATIONS);
           requestPermissionList.push(PERMISSIONS.ANDROID.POST_NOTIFICATIONS);
         }
         await requestMultiple(requestPermissionList);
@@ -67,73 +61,14 @@ function App(): JSX.Element {
   }, []);
   useEffect(() => {
     checkPermistion();
-    // firebaseService.onMessage(handlePressCallButton);
-
-    const subscription = AppState.addEventListener('change', nextAppState => {
-      setAppState(nextAppState);
-      return () => {
-        subscription.remove();
-      };
-    });
   }, [checkPermistion]);
 
-  const handlePressSmsButton = (phone: string, msg: string) => {
-    console.log('-----> handlePressSmsButton');
-    SmsModule.sendSms(phone, msg);
-  };
-
-  const handlePressCallButton = async (phone: string) => {
-    console.log('-----> handlePressCallButton');
-    PhoneCallModule.call(phone);
-  };
-
-  const handleAction = useCallback(
-    (type: MessageTitle, data: {phone: string; messages?: string}) => {
-      console.log({type, data});
-      if (type === MessageTitle.CallPhone) {
-        handlePressCallButton(data.phone);
-      }
-      if (type === MessageTitle.SendSMS) {
-        handlePressSmsButton(data.phone, data?.messages || '');
-      }
-    },
-    [],
-  );
-
-  useEffect(() => {
-    if (appState === 'active') {
-      firebaseService.onMessage(handleAction);
-    } else {
-      firebaseService.onBackgroundMessage(handleAction);
-      PushNotification.localNotification({
-        channelId: 'nailshop-channel-id',
-        title: 'Nailshop',
-        message: 'Background notify',
-      });
-    }
-  }, [appState, handleAction]);
-
-  // const handlePressGetTokenButton = () => {
-  //   firebaseService.geToken();
-  // };
   return (
     <MobxStoreProvider>
-      {/* <SafeAreaView>
-        <View>
-          <Text>Phone Call App</Text>
-        </View>
- <View>
-        <Button onPress={handlePressSmsButton} title="Sms click" />
-      </View>
-      <View>
-        <Button onPress={handlePressCallButton} title="Phone call" />
-      </View> 
-        <View>
-          <Button onPress={handlePressGetTokenButton} title="Update token" />
-        </View>
-      </SafeAreaView> */}
       <NativeBaseProvider theme={theme}>
-        <LoginScreen />
+        <NavigationContainer>
+          <AppNavigator />
+        </NavigationContainer>
       </NativeBaseProvider>
     </MobxStoreProvider>
   );

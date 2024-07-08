@@ -1,6 +1,6 @@
 import {NavigatorMaps} from './NavigatorMap';
 
-export const configNavigator = {
+export const ConfigNavigator = {
   screens: {
     Login: NavigatorMaps.Login,
     Home: NavigatorMaps.Home,
