@@ -1,13 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
-import {
-  AppState,
-  Button,
-  NativeModules,
-  Platform,
-  SafeAreaView,
-  Text,
-  View,
-} from 'react-native';
+import {AppState, NativeModules, Platform} from 'react-native';
 import {
   check,
   PERMISSIONS,
@@ -18,6 +10,10 @@ import {FirebaseService} from './core/firebase';
 
 import PushNotification from 'react-native-push-notification';
 import {MessageTitle} from '@mtt-nails/consts';
+import {MobxStoreProvider} from './stores/providers';
+import LoginScreen from './screens/login';
+import {NativeBaseProvider} from 'native-base';
+import {theme} from './libs/theme';
 
 PushNotification.createChannel(
   {
@@ -117,24 +113,29 @@ function App(): JSX.Element {
     }
   }, [appState, handleAction]);
 
-  const handlePressGetTokenButton = () => {
-    firebaseService.geToken();
-  };
+  // const handlePressGetTokenButton = () => {
+  //   firebaseService.geToken();
+  // };
   return (
-    <SafeAreaView>
-      <View>
-        <Text>Phone Call App</Text>
-      </View>
-      {/* <View>
+    <MobxStoreProvider>
+      {/* <SafeAreaView>
+        <View>
+          <Text>Phone Call App</Text>
+        </View>
+ <View>
         <Button onPress={handlePressSmsButton} title="Sms click" />
       </View>
       <View>
         <Button onPress={handlePressCallButton} title="Phone call" />
-      </View> */}
-      <View>
-        <Button onPress={handlePressGetTokenButton} title="Update token" />
-      </View>
-    </SafeAreaView>
+      </View> 
+        <View>
+          <Button onPress={handlePressGetTokenButton} title="Update token" />
+        </View>
+      </SafeAreaView> */}
+      <NativeBaseProvider theme={theme}>
+        <LoginScreen />
+      </NativeBaseProvider>
+    </MobxStoreProvider>
   );
 }
 
